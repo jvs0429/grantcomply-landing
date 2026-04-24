@@ -62,7 +62,7 @@
   .problem-text { font-size: 15px; color: #92400e; line-height: 1.5; }
   .programs-section { padding: 80px 2rem; background: white; }
   .programs-inner { max-width: 1100px; margin: 0 auto; }
-  .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
   .program-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px 22px; background: white; }
   .program-card-label { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--teal-dark); background: var(--teal-light); padding: 3px 10px; border-radius: 100px; margin-bottom: 14px; }
   .program-card-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
@@ -130,7 +130,7 @@
   .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
   .footer-links a:hover { color: var(--navy); }
   .footer-disclaimer { font-size: 12px; color: #94a3b8; text-align: center; margin-top: 12px; }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } .who-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } .who-grid { grid-template-columns: repeat(2, 1fr); } .programs-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px) {
     nav { padding: 0 1rem; }
     .nav-links { display: none; }
@@ -312,22 +312,6 @@
   </div>
 </section>
 
-<section class="managed-section">
-  <div class="managed-inner">
-    <p class="section-label">GrantComply Managed</p>
-    <h2>Don't have time to manage this yourself?<br><em>We'll do it for you.</em></h2>
-    <p class="managed-intro">Our team joins your GrantComply workspace as your dedicated grant advisor. We handle compliance, procurement guidance, application drafting, and closeout — at a fraction of traditional consulting cost.</p>
-    <div class="managed-bullets">
-      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Dedicated advisor in your workspace</span></div>
-      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Active grant management end-to-end</span></div>
-      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Procurement guidance and documentation</span></div>
-      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Full closeout and audit documentation</span></div>
-    </div>
-    <a href="https://tally.so/r/xXPAd9" class="managed-cta">Talk to our team</a>
-    <p class="managed-note">Typically 60–80% less than traditional grant consulting</p>
-  </div>
-</section>
-
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
     <p class="section-label">Pricing</p>
@@ -387,6 +371,22 @@
       The average grant consultant charges <strong>$150/hour</strong>. GrantComply pays for itself the first time you avoid a compliance finding or answer a procurement question in seconds instead of days.
     </div>
     <p class="pricing-note">All plans include a 30-day free trial · No credit card required · Cancel anytime · Data isolated per organization</p>
+  </div>
+</section>
+
+<section class="managed-section">
+  <div class="managed-inner">
+    <p class="section-label">GrantComply Managed</p>
+    <h2>Don't have time to manage this yourself?<br><em>We'll do it for you.</em></h2>
+    <p class="managed-intro">Our team joins your GrantComply workspace as your dedicated grant advisor. We handle compliance, procurement guidance, application drafting, and closeout — at a fraction of traditional consulting cost.</p>
+    <div class="managed-bullets">
+      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Dedicated advisor in your workspace</span></div>
+      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Active grant management end-to-end</span></div>
+      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Procurement guidance and documentation</span></div>
+      <div class="managed-bullet"><span class="managed-bullet-check">✓</span><span>Full closeout and audit documentation</span></div>
+    </div>
+    <a href="https://tally.so/r/xXPAd9" class="managed-cta">Talk to our team</a>
+    <p class="managed-note">Typically 60–80% less than traditional grant consulting</p>
   </div>
 </section>
 
