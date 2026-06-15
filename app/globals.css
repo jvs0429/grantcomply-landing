@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   GrantComply design system — dark mode first
+   Tailwind v4 CSS-first config (no tailwind.config.ts)
+---------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces */
+  --color-bg: #0f1117; /* dark primary — page background */
+  --color-surface: #1a1a1a; /* dark secondary — cards / alt sections */
+  --color-surface-2: #15171e; /* subtle alternate */
+
+  /* Text */
+  --color-fg: #ffffff; /* text on dark */
+  --color-muted: #999999; /* secondary text */
+  --color-faint: #6b7280; /* tertiary / captions */
+
+  /* Accents */
+  --color-accent: #3b82f6; /* bright blue — CTAs */
+  --color-accent-hover: #2f6fd6;
+  --color-accent-alt: #10b981; /* teal/green — secondary */
+
+  /* Borders */
+  --color-line: #2a2d36; /* default border on dark */
+  --color-line-strong: #444444;
+
+  /* Status */
+  --color-live: #10b981;
+  --color-coming: #999999;
+
+  /* Light tokens (available for any light surface) */
+  --color-light: #fafafa;
+  --color-light-2: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-line-light: #e5e5e5;
+
+  /* Fonts (wired to next/font CSS variables) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, "Times New Roman", serif;
+
+  /* Container */
+  --container-site: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+/* Reusable utility classes ------------------------------------------------- */
+@utility container-site {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--container-site);
+  padding-inline: 24px;
+}
+
+/* Square / minimally-rounded controls (no pill buttons) */
+@utility btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 14px 24px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
