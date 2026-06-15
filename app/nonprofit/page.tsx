@@ -70,10 +70,7 @@ export default function NonprofitPage() {
       </Section>
 
       <Section alt>
-        <SocialProof
-          quote={nonprofit.socialProof.quote}
-          attribution={nonprofit.socialProof.attribution}
-        />
+        <SocialProof quote={nonprofit.socialProof.quote} />
       </Section>
 
       <Section>

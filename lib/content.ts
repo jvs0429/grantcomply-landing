@@ -89,6 +89,16 @@ export const VERTICALS: Vertical[] = [
   },
 ];
 
+/* ------------------------------------------------------------- Testimonials */
+// Representative, un-attributed quotes rotated across the marketing pages.
+
+export const testimonials: string[] = [
+  "We demonstrated this to our city manager and county judge in the same week. Both said it was the most impressive grants platform they'd ever seen.",
+  "The compliance checking alone—catching requirements we'd miss in a 50-page NOFO—paid for itself before we even submitted the application.",
+  "What used to be 6 people working on grants full-time is now doable for 2. That's not just efficiency—that's a capability multiplier.",
+  "For a nonprofit with 3 staff members and no grants department, this is the difference between applying for 2 grants a year and 10.",
+];
+
 /* ------------------------------------------------------------------ Landing */
 
 export const landing = {
@@ -123,9 +133,7 @@ export const landing = {
   ] as Step[],
   socialProof: {
     label: "Trusted by mission-driven orgs",
-    quote:
-      "City of Hearne discovered 12 new grant opportunities, applied for 3, and won $2.1M in awards. Post-award management went from 6 months to 4 weeks.",
-    attribution: "— City Manager, City of Hearne, TX",
+    quotes: [testimonials[0], testimonials[2]],
     logos: [
       "City of Hearne",
       "Brazos Valley",
@@ -283,9 +291,7 @@ export const government = {
     },
   ] as PricingTier[],
   socialProof: {
-    quote:
-      "GrantComply brought visibility to our entire grant portfolio—from discovery through closeout. What used to require a dedicated full-time position is now doable with 2 people managing multiple programs.",
-    attribution: "— City Manager, City of Hearne, TX",
+    quote: testimonials[1],
   },
   cta: {
     headline:
@@ -414,22 +420,21 @@ export const nonprofit = {
       price: "$0",
       cadence: "early access",
       description:
-        "Full feature access for nonprofit teams getting started. Premium tiers launching 2027.",
+        "Full feature access for nonprofit teams getting started. Upgrade to Premium anytime.",
       featured: true,
       cta: { label: "Start Free", href: "/#early-access" },
     },
     {
       plan: "Premium",
-      price: "Coming 2027",
+      price: "$999",
+      cadence: "/year",
       description:
-        "Team management, advanced reporting, integration capabilities. Pricing TBA.",
-      cta: { label: "Join Early Access", href: "/#early-access" },
+        "Team management, advanced reporting, and integration capabilities.",
+      cta: { label: "Get Premium", href: "/#early-access" },
     },
   ] as PricingTier[],
   socialProof: {
-    quote:
-      "Our team identified 47 funding opportunities we didn't know existed, assessed fit and readiness on 8 of them, submitted formal applications for 5, and won a $250K award. The work that usually took 6 weeks of proposal writing took 2 weeks with AI assistance. The bigger win: clarity on where we actually fit, so we're not chasing every lead.",
-    attribution: "— Executive Director, Community Nonprofit, TX",
+    quote: testimonials[3],
   },
   cta: {
     headline: "Funding is your organization's most accessible revenue source.",

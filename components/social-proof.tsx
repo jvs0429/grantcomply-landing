@@ -1,16 +1,18 @@
 export function SocialProof({
   label,
   quote,
+  quotes,
   attribution,
   logos,
 }: {
   label?: string;
-  quote: string;
-  attribution: string;
+  quote?: string;
+  quotes?: string[];
+  attribution?: string;
   logos?: string[];
 }) {
   return (
-    <div className="mx-auto max-w-3xl text-center">
+    <div className="mx-auto max-w-4xl text-center">
       {label && (
         <p className="mb-10 text-xs font-semibold uppercase tracking-[0.18em] text-faint">
           {label}
@@ -30,10 +32,27 @@ export function SocialProof({
         </div>
       )}
 
-      <blockquote className="font-serif text-2xl leading-snug tracking-[-0.3px] text-fg md:text-3xl">
-        “{quote}”
-      </blockquote>
-      <p className="mt-6 text-sm text-muted">{attribution}</p>
+      {quotes && quotes.length > 0 ? (
+        <div className="grid grid-cols-1 gap-5 text-left md:grid-cols-2">
+          {quotes.map((q) => (
+            <blockquote
+              key={q}
+              className="rounded-[4px] border border-line bg-bg p-7 font-serif text-xl leading-snug tracking-[-0.3px] text-fg"
+            >
+              “{q}”
+            </blockquote>
+          ))}
+        </div>
+      ) : quote ? (
+        <>
+          <blockquote className="mx-auto max-w-3xl font-serif text-2xl leading-snug tracking-[-0.3px] text-fg md:text-3xl">
+            “{quote}”
+          </blockquote>
+          {attribution && (
+            <p className="mt-6 text-sm text-muted">{attribution}</p>
+          )}
+        </>
+      ) : null}
     </div>
   );
 }

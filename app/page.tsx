@@ -41,8 +41,7 @@ export default function HomePage() {
       <Section alt>
         <SocialProof
           label={landing.socialProof.label}
-          quote={landing.socialProof.quote}
-          attribution={landing.socialProof.attribution}
+          quotes={landing.socialProof.quotes}
           logos={landing.socialProof.logos}
         />
       </Section>

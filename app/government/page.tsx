@@ -60,10 +60,7 @@ export default function GovernmentPage() {
       </Section>
 
       <Section>
-        <SocialProof
-          quote={government.socialProof.quote}
-          attribution={government.socialProof.attribution}
-        />
+        <SocialProof quote={government.socialProof.quote} />
       </Section>
 
       <Section alt>
