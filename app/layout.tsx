@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/header";
@@ -38,6 +39,13 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <Analytics />
+        <Script
+          id="vtag-ai-js"
+          strategy="afterInteractive"
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="jjaYODotQzQ993Pb"
+          data-version="062024"
+        />
       </body>
     </html>
   );
