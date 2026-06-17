@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
+import { ProblemGrid } from "@/components/problem-grid";
 import { Section, SectionHeading } from "@/components/primitives";
 import { VerticalsGrid } from "@/components/verticals-grid";
 import { ThesisSection } from "@/components/thesis-section";
 import { SocialProof } from "@/components/social-proof";
 import { RoadmapSection } from "@/components/roadmap-section";
 import { PricingTable } from "@/components/pricing-table";
-import { EarlyAccessForm } from "@/components/early-access-form";
 import { buildMetadata, pageMeta } from "@/lib/metadata";
 import { landing, pricing, VERTICALS } from "@/lib/content";
 
@@ -21,6 +21,8 @@ export default function HomePage() {
         ctas={landing.hero.ctas}
         note={landing.hero.note}
       />
+
+      <ProblemGrid cards={landing.problemGrid.cards} />
 
       <Section alt>
         <SectionHeading
@@ -66,13 +68,6 @@ export default function HomePage() {
         <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted">
           {pricing.comingNote}
         </p>
-      </Section>
-
-      <Section>
-        <EarlyAccessForm
-          heading="Join Early Access"
-          sub="Tell us about your organization and we'll be in touch about the right vertical for you."
-        />
       </Section>
     </>
   );

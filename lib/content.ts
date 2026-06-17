@@ -18,6 +18,8 @@ export type Screenshot = { src: string; alt: string };
 
 export type ProblemCard = { icon: string; title: string; body: string };
 
+export type ProblemGridCard = { icon: string; kicker: string; body: string };
+
 export type Step = { kicker: string; title: string; body: string };
 
 export type PricingTier = {
@@ -104,15 +106,40 @@ export const testimonials: string[] = [
 export const landing = {
   hero: {
     headline:
-      "Every organization needs grants. The cycle is identical. The solution should be too.",
+      "2 people do what took 6. $30M in ARPA exposure prevented. 10x more grant applications submitted.",
     subheading:
-      "GrantComply is the grant-lifecycle platform for cities, nonprofits, hospitals, universities, public safety, and small business.",
+      "Cities and nonprofits using GrantComply reclaimed staff capacity, avoided compliance disasters, and multiplied their funding pipeline. Here's what changed.",
     ctas: [
-      { label: "See Government", href: "/government" },
-      { label: "See Nonprofit", href: "/nonprofit" },
-      { label: "Explore Roadmap", href: "/#roadmap" },
+      { label: "Start Your Free Trial", href: "https://app.grantcomply.app/signup" },
+      { label: "Schedule a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
     ] as CTA[],
-    note: "Start free or with a 30-day trial. No credit card required.",
+    note: "30-day trial. Full access. No credit card. We'll set up your organization.",
+  },
+  problemGrid: {
+    label: "The Reality",
+    title: "Why it's hard to manage grants well",
+    cards: [
+      {
+        icon: "🔍",
+        kicker: "Discovery",
+        body: "Opportunities scattered across Grants.gov, state portals, foundation lists, and email alerts. No way to know what you're actually missing.",
+      },
+      {
+        icon: "❓",
+        kicker: "Eligibility",
+        body: "Assessed by email, weeks into the application process. Compliance risks asked too late. Surprises at the deadline.",
+      },
+      {
+        icon: "📦",
+        kicker: "Post-Award",
+        body: "Procurement tracked here, drawdowns there, expenditures in a spreadsheet. Visibility is fragmented.",
+      },
+      {
+        icon: "📋",
+        kicker: "Closeout",
+        body: "Readiness is a last-minute scramble. Audit-ready documentation scattered across departments.",
+      },
+    ] as ProblemGridCard[],
   },
   thesis: [
     {
@@ -160,7 +187,7 @@ export const landing = {
     ],
     subtext:
       "Same engine, tailored to your organization. Early access available for all coming verticals.",
-    cta: { label: "Join Early Access", href: "/#early-access" },
+    cta: { label: "Join Early Access", href: "https://app.grantcomply.app/signup" },
   },
 };
 
@@ -173,8 +200,8 @@ export const government = {
       "Cities pursue funding from federal, state, and local sources—with email alerts, spreadsheets, and legal back-and-forth scattered across departments. No single source of truth. No compliance automation. Award management takes months.",
     body: "GrantComply unifies discovery → application tracking → post-award workspaces → compliance → funding intelligence. One workspace. All opportunities.",
     ctas: [
-      { label: "See Live Demo", href: "/#early-access" },
-      { label: "Start 30-Day Trial", href: "/#early-access" },
+      { label: "See Live Demo", href: "https://calendly.com/jonathanvstuart/30min" },
+      { label: "Start 30-Day Trial", href: "https://app.grantcomply.app/signup" },
     ] as CTA[],
   },
   problem: {
@@ -264,14 +291,14 @@ export const government = {
       price: "Free",
       cadence: "30 days",
       description: "Full access to evaluate GrantComply for your jurisdiction.",
-      cta: { label: "Start Trial", href: "/#early-access" },
+      cta: { label: "Start Trial", href: "https://app.grantcomply.app/signup" },
     },
     {
       plan: "Starter",
       price: "$4,800",
       cadence: "/year",
       description: "For small cities (<100K population). Basic discovery + tracker.",
-      cta: { label: "Get Started", href: "/#early-access" },
+      cta: { label: "Get Started", href: "https://app.grantcomply.app/signup" },
     },
     {
       plan: "Professional",
@@ -280,14 +307,14 @@ export const government = {
       description:
         "For mid-size cities. Advanced compliance, team management.",
       featured: true,
-      cta: { label: "Get Started", href: "/#early-access" },
+      cta: { label: "Get Started", href: "https://app.grantcomply.app/signup" },
     },
     {
       plan: "Enterprise",
       price: "Custom",
       description:
         "For large jurisdictions. Advanced integrations, dedicated support.",
-      cta: { label: "Contact Sales", href: "/#early-access" },
+      cta: { label: "Contact Sales", href: "https://app.grantcomply.app/signup" },
     },
   ] as PricingTier[],
   socialProof: {
@@ -297,8 +324,8 @@ export const government = {
     headline:
       "See how government teams discover and manage funding at scale.",
     ctas: [
-      { label: "Start Your Free Trial", href: "/#early-access" },
-      { label: "Schedule a Demo", href: "/#early-access" },
+      { label: "Start Your Free Trial", href: "https://app.grantcomply.app/signup" },
+      { label: "Schedule a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
     ] as CTA[],
   },
 };
@@ -312,8 +339,8 @@ export const nonprofit = {
       "Nonprofits have limited staff, multiple funding sources, and a mission to focus on. They need discovery, eligibility assessment, proposal drafting, and funder relationship management—without hiring a $80K consultant.",
     body: "GrantComply unifies discovery (federal opportunities + private foundations) → proposal pipeline (kanban, checklists, staged workflow) → AI-assisted drafting (LOIs, narratives, logic models, budgets) → funder relationship tracking (pipeline, interactions, outcomes). One platform. All funders.",
     ctas: [
-      { label: "Start Free", href: "/#early-access" },
-      { label: "See a Demo", href: "/#early-access" },
+      { label: "Start Free", href: "https://app.grantcomply.app/signup" },
+      { label: "See a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
     ] as CTA[],
   },
   problem: {
@@ -422,7 +449,7 @@ export const nonprofit = {
       description:
         "Full feature access for nonprofit teams getting started. Upgrade to Premium anytime.",
       featured: true,
-      cta: { label: "Start Free", href: "/#early-access" },
+      cta: { label: "Start Free", href: "https://app.grantcomply.app/signup" },
     },
     {
       plan: "Premium",
@@ -430,7 +457,7 @@ export const nonprofit = {
       cadence: "/year",
       description:
         "Team management, advanced reporting, and integration capabilities.",
-      cta: { label: "Get Premium", href: "/#early-access" },
+      cta: { label: "Get Premium", href: "https://app.grantcomply.app/signup" },
     },
   ] as PricingTier[],
   socialProof: {
@@ -439,8 +466,8 @@ export const nonprofit = {
   cta: {
     headline: "Funding is your organization's most accessible revenue source.",
     ctas: [
-      { label: "Start Free", href: "/#early-access" },
-      { label: "Request a Demo", href: "/#early-access" },
+      { label: "Start Free", href: "https://app.grantcomply.app/signup" },
+      { label: "Request a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
     ] as CTA[],
   },
 };
@@ -557,7 +584,7 @@ export const nav = {
   ],
   ctas: {
     login: { label: "Login", href: "https://app.grantcomply.app/login" },
-    signup: { label: "Start Free", href: "/#early-access" },
+    signup: { label: "Start Free", href: "https://app.grantcomply.app/signup" },
   },
 };
 
