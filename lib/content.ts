@@ -106,7 +106,7 @@ export const testimonials: string[] = [
 export const landing = {
   hero: {
     headline:
-      "2 people do what took 6. $30M in ARPA exposure prevented. 10x more grant applications submitted.",
+      "Grant teams that use GrantComply move faster, miss less, and close stronger.",
     subheading:
       "Cities and nonprofits using GrantComply reclaimed staff capacity, avoided compliance disasters, and multiplied their funding pipeline. Here's what changed.",
     ctas: [
