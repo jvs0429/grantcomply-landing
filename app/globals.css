@@ -19,6 +19,7 @@
   --color-accent: #3b82f6; /* bright blue — CTAs */
   --color-accent-hover: #2f6fd6;
   --color-accent-alt: #10b981; /* teal/green — secondary */
+  --color-accent-alt-hover: #0f9e6f;
 
   /* Borders */
   --color-line: #2a2d36; /* default border on dark */

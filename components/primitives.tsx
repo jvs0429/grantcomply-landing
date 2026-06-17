@@ -8,7 +8,7 @@ const variantClass: Record<ButtonVariant, string> = {
   primary:
     "bg-accent text-white hover:bg-accent-hover border border-transparent",
   secondary:
-    "bg-transparent text-fg border border-line-strong hover:border-fg hover:bg-surface",
+    "bg-accent-alt text-white hover:bg-accent-alt-hover border border-transparent",
   ghost: "bg-transparent text-muted hover:text-fg border border-transparent",
 };
 
