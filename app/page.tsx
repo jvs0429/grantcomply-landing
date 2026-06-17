@@ -20,6 +20,7 @@ export default function HomePage() {
         subheading={landing.hero.subheading}
         ctas={landing.hero.ctas}
         note={landing.hero.note}
+        screenshotSrc="/screenshots/government-discovery.png"
       />
 
       <ProblemGrid cards={landing.problemGrid.cards} />
