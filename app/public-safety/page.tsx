@@ -9,7 +9,7 @@ export default function PublicSafetyPage() {
   return (
     <ComingVertical
       eyebrow="Public Safety · Coming Q4 2026"
-      vertical="public-safety"
+      orgType="Public Safety"
       hero={publicSafety.hero}
       cohort={publicSafety.cohort}
       live={publicSafety.live}

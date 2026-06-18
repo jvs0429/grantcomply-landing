@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { Section, SectionHeading } from "@/components/primitives";
 import { CtaSection } from "@/components/cta-section";
-import { EarlyAccessForm } from "@/components/early-access-form";
+import { ContactSalesForm } from "@/components/contact-sales-form";
 import { buildMetadata, pageMeta } from "@/lib/metadata";
 import { healthcare } from "@/lib/content";
 
@@ -99,8 +99,8 @@ export default function HealthcarePage() {
       </Section>
 
       <Section alt>
-        <EarlyAccessForm
-          vertical="healthcare"
+        <ContactSalesForm
+          orgType="Healthcare"
           heading="Request Early Access"
           sub="Join the cohort of 10 health systems shaping GrantComply for healthcare."
         />

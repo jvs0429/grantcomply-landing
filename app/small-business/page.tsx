@@ -9,7 +9,7 @@ export default function SmallBusinessPage() {
   return (
     <ComingVertical
       eyebrow="Small Business · Coming Q1 2027"
-      vertical="small-business"
+      orgType="Small Business"
       hero={smallBusiness.hero}
       cohort={smallBusiness.cohort}
       live={smallBusiness.live}

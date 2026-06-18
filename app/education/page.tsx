@@ -9,7 +9,7 @@ export default function EducationPage() {
   return (
     <ComingVertical
       eyebrow="Education · Coming Q1 2027"
-      vertical="education"
+      orgType="Education"
       hero={education.hero}
       cohort={education.cohort}
       live={education.live}
