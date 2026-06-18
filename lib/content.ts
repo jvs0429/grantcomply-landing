@@ -4,6 +4,35 @@ export type Status = "live" | "coming";
 
 export type CTA = { label: string; href: string };
 
+/* ------------------------------------------------------- Canonical CTAs */
+// Single source of truth for the two funnel intents. Reference these instead
+// of hand-writing labels/hrefs per page so destinations never drift again.
+
+// Self-serve: go straight to product signup.
+export const CTA_SIGNUP: CTA = {
+  label: "Start Free Trial",
+  href: "https://app.grantcomply.app/signup",
+};
+
+// Talk to a human: scroll to the on-page Contact Sales form (which routes to
+// scheduling after submit). Pages using this MUST render <ContactSalesForm />.
+export const CTA_CONTACT: CTA = {
+  label: "Contact Sales",
+  href: "#contact-sales",
+};
+
+// Book a time directly.
+export const CTA_DEMO: CTA = {
+  label: "Schedule a Demo",
+  href: "https://calendly.com/jonathanvstuart/30min",
+};
+
+// Contact Sales pre-tagged with a pricing tier (carried via query param so the
+// form can include it in the lead email).
+export function ctaContactForPlan(plan: string): CTA {
+  return { label: "Contact Sales", href: `?plan=${encodeURIComponent(plan)}#contact-sales` };
+}
+
 export type Vertical = {
   slug: string;
   icon: string;
@@ -109,10 +138,7 @@ export const landing = {
       "Grant teams that use GrantComply move faster, miss less, and close stronger.",
     subheading:
       "Cities and nonprofits using GrantComply reclaimed staff capacity, avoided compliance disasters, and multiplied their funding pipeline. Here's what changed.",
-    ctas: [
-      { label: "Start Your Free Trial", href: "https://app.grantcomply.app/signup" },
-      { label: "Schedule a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
-    ] as CTA[],
+    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
     note: "30-day trial. Full access. No credit card. We'll set up your organization.",
   },
   problemGrid: {
@@ -187,7 +213,7 @@ export const landing = {
     ],
     subtext:
       "Same engine, tailored to your organization. Early access available for all coming verticals.",
-    cta: { label: "Join Early Access", href: "https://app.grantcomply.app/signup" },
+    cta: CTA_DEMO,
   },
 };
 
@@ -199,10 +225,7 @@ export const government = {
     subheading:
       "Cities pursue funding from federal, state, and local sources—with email alerts, spreadsheets, and legal back-and-forth scattered across departments. No single source of truth. No compliance automation. Award management takes months.",
     body: "GrantComply unifies discovery → application tracking → post-award workspaces → compliance → funding intelligence. One workspace. All opportunities.",
-    ctas: [
-      { label: "See Live Demo", href: "https://calendly.com/jonathanvstuart/30min" },
-      { label: "Start 30-Day Trial", href: "https://app.grantcomply.app/signup" },
-    ] as CTA[],
+    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
   },
   problem: {
     heading: "The Reality for City Grant Teams",
@@ -314,7 +337,7 @@ export const government = {
       price: "Custom",
       description:
         "For large jurisdictions. Advanced integrations, dedicated support.",
-      cta: { label: "Contact Sales", href: "https://app.grantcomply.app/signup" },
+      cta: ctaContactForPlan("Government Enterprise"),
     },
   ] as PricingTier[],
   socialProof: {
@@ -323,10 +346,7 @@ export const government = {
   cta: {
     headline:
       "See how government teams discover and manage funding at scale.",
-    ctas: [
-      { label: "Start Your Free Trial", href: "https://app.grantcomply.app/signup" },
-      { label: "Schedule a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
-    ] as CTA[],
+    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
   },
 };
 
@@ -338,10 +358,7 @@ export const nonprofit = {
     subheading:
       "Nonprofits have limited staff, multiple funding sources, and a mission to focus on. They need discovery, eligibility assessment, proposal drafting, and funder relationship management—without hiring a $80K consultant.",
     body: "GrantComply unifies discovery (federal opportunities + private foundations) → proposal pipeline (kanban, checklists, staged workflow) → AI-assisted drafting (LOIs, narratives, logic models, budgets) → funder relationship tracking (pipeline, interactions, outcomes). One platform. All funders.",
-    ctas: [
-      { label: "Start Free", href: "https://app.grantcomply.app/signup" },
-      { label: "See a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
-    ] as CTA[],
+    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
   },
   problem: {
     heading: "The Reality for Nonprofit Funders",
@@ -465,10 +482,7 @@ export const nonprofit = {
   },
   cta: {
     headline: "Funding is your organization's most accessible revenue source.",
-    ctas: [
-      { label: "Start Free", href: "https://app.grantcomply.app/signup" },
-      { label: "Request a Demo", href: "https://calendly.com/jonathanvstuart/30min" },
-    ] as CTA[],
+    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
   },
 };
 
@@ -480,10 +494,7 @@ export const healthcare = {
     subheading:
       "Health systems manage funding from multiple federal, state, foundation, and local sources simultaneously. No single platform integrates discovery, application, and compliance for complex health organizations.",
     body: "Why it matters: Healthcare is one of the largest funding-consuming sectors. Health systems spend millions annually on grant administration—and still miss opportunities or face compliance surprises. The difference: Same discovery → apply → comply → manage engine, tailored for healthcare organizations.",
-    ctas: [
-      { label: "Join Early Access", href: "/#early-access" },
-      { label: "Request Briefing", href: "/#early-access" },
-    ] as CTA[],
+    ctas: [CTA_CONTACT, CTA_DEMO] as CTA[],
   },
   opportunity: {
     heading: "Why Healthcare Needs GrantComply Now",
@@ -512,7 +523,7 @@ export const healthcare = {
   cta: {
     headline:
       "The most complex funding environment deserves the most thoughtful platform.",
-    ctas: [{ label: "Request Early Access", href: "/#early-access" }] as CTA[],
+    ctas: [CTA_CONTACT] as CTA[],
   },
 };
 
@@ -524,7 +535,7 @@ export const education = {
     subheading:
       "Universities pursue funding across research, infrastructure, workforce, and community programs—often with fragmented departmental coordination. Compliance rules vary by source. Collaboration is scattered.",
     body: "Coming Q1 2027. Early access for 15 universities.",
-    ctas: [{ label: "Request Early Access", href: "/#early-access" }] as CTA[],
+    ctas: [CTA_CONTACT] as CTA[],
   },
   cohort: "Early access for 15 universities",
   live: "Q1 2027",
@@ -536,7 +547,7 @@ export const publicSafety = {
     subheading:
       "Fire departments, police departments, and public safety agencies pursue federal, state, and local funding for equipment, training, and operations. Coordination is scattered. Readiness is reactive.",
     body: "Coming Q4 2026. Early access for 25 public safety agencies.",
-    ctas: [{ label: "Request Early Access", href: "/#early-access" }] as CTA[],
+    ctas: [CTA_CONTACT] as CTA[],
   },
   cohort: "Early access for 25 public safety agencies",
   live: "Q4 2026",
@@ -548,7 +559,7 @@ export const smallBusiness = {
     subheading:
       "Small business owners need federal, state, and local funding to grow. Most don't know what they qualify for. GrantComply changes that.",
     body: "Coming Q1 2027. Early access for 50 small businesses.",
-    ctas: [{ label: "Request Early Access", href: "/#early-access" }] as CTA[],
+    ctas: [CTA_CONTACT] as CTA[],
   },
   cohort: "Early access for 50 small businesses",
   live: "Q1 2027",

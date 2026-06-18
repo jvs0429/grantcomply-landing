@@ -8,7 +8,7 @@ import { ScreenshotCarousel } from "@/components/screenshot-carousel";
 import { PricingTable } from "@/components/pricing-table";
 import { SocialProof } from "@/components/social-proof";
 import { CtaSection } from "@/components/cta-section";
-import { EarlyAccessForm } from "@/components/early-access-form";
+import { ContactSalesForm } from "@/components/contact-sales-form";
 import { buildMetadata, pageMeta } from "@/lib/metadata";
 import { government } from "@/lib/content";
 
@@ -64,10 +64,10 @@ export default function GovernmentPage() {
       </Section>
 
       <Section alt>
-        <EarlyAccessForm
-          vertical="government"
-          heading="Start your 30-day trial"
-          sub="No credit card required. We'll get your jurisdiction set up."
+        <ContactSalesForm
+          orgType="Government"
+          heading="Talk to sales"
+          sub="Tell us about your jurisdiction and we'll get you set up."
         />
       </Section>
 

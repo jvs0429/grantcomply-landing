@@ -1,18 +1,19 @@
 import { Hero } from "./hero";
 import { Section, SectionHeading } from "./primitives";
-import { EarlyAccessForm } from "./early-access-form";
+import { ContactSalesForm } from "./contact-sales-form";
 import { RoadmapSection } from "./roadmap-section";
 import type { CTA } from "@/lib/content";
 
 export function ComingVertical({
   eyebrow,
-  vertical,
+  orgType,
   hero,
   cohort,
   live,
 }: {
   eyebrow: string;
-  vertical: string;
+  /** Pre-fills the Contact Sales form's Organization Type (read-only). */
+  orgType: string;
   hero: { headline: string; subheading: string; body: string; ctas: CTA[] };
   cohort: string;
   live: string;
@@ -51,8 +52,8 @@ export function ComingVertical({
       </Section>
 
       <Section alt>
-        <EarlyAccessForm
-          vertical={vertical}
+        <ContactSalesForm
+          orgType={orgType}
           heading="Request Early Access"
           sub={cohort}
         />

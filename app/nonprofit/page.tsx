@@ -8,7 +8,7 @@ import { ScreenshotCarousel } from "@/components/screenshot-carousel";
 import { PricingTable } from "@/components/pricing-table";
 import { SocialProof } from "@/components/social-proof";
 import { CtaSection } from "@/components/cta-section";
-import { EarlyAccessForm } from "@/components/early-access-form";
+import { ContactSalesForm } from "@/components/contact-sales-form";
 import { buildMetadata, pageMeta } from "@/lib/metadata";
 import { nonprofit } from "@/lib/content";
 
@@ -74,10 +74,10 @@ export default function NonprofitPage() {
       </Section>
 
       <Section>
-        <EarlyAccessForm
-          vertical="nonprofit"
-          heading="Start free"
-          sub="Full feature access for nonprofit teams getting started."
+        <ContactSalesForm
+          orgType="Nonprofit"
+          heading="Talk to sales"
+          sub="Tell us about your organization and we'll help you get started."
         />
       </Section>
 
