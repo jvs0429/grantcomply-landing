@@ -10,7 +10,7 @@ export type CTA = { label: string; href: string };
 
 // Self-serve: go straight to product signup.
 export const CTA_SIGNUP: CTA = {
-  label: "Start Free Trial",
+  label: "Start free",
   href: "https://app.grantcomply.app/signup",
 };
 
@@ -52,6 +52,15 @@ export type ProblemGridCard = { icon: string; kicker: string; body: string };
 export type Step = { kicker: string; title: string; body: string };
 
 export type Stat = { figure: string; label: string; check?: boolean };
+
+export type Persona = {
+  icon: string;
+  audience: string;
+  who: string;
+  pain: string;
+  relief: string;
+  cta: CTA;
+};
 
 export type Testimonial = { quote: string; name: string; role: string };
 
@@ -139,12 +148,14 @@ export const testimonials: string[] = [
 export const landing = {
   hero: {
     eyebrow: "For city, county & nonprofit grant teams",
-    headline:
-      "Grant teams that use GrantComply move faster, miss less, and close stronger.",
+    headline: "Grants, without the dread.",
     subheading:
-      "Run the whole grant lifecycle — discovery to closeout — in one system built for small teams carrying big compliance.",
-    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
-    note: "30-day trial · Full access · No credit card · We set you up.",
+      "From the first opportunity to an audit-ready closeout, GrantComply runs your entire grant lifecycle — so a two-person team can chase the funding a ten-person team would.",
+    ctas: [
+      { label: "Start free — we set you up", href: CTA_SIGNUP.href },
+      { label: "Schedule a demo", href: CTA_DEMO.href },
+    ] as CTA[],
+    note: "Start free · No credit card · We set up your organization in an afternoon.",
   },
   // Signature element: the trust band as a financial-statement / audit readout.
   stats: [
@@ -181,6 +192,42 @@ export const landing = {
         body: "Closeout is a scramble — and underneath it, the quiet worry: did we miss something 2 CFR says an auditor will find?",
       },
     ] as ProblemGridCard[],
+  },
+  personas: {
+    label: "Built for your world",
+    title: "The cycle is the same. The weight lands differently.",
+    sub: "A finance director, a lone grant manager, and a one-person nonprofit shop carry the same lifecycle — but not the same fear. We built for each of them.",
+    live: [
+      {
+        icon: "cities",
+        audience: "Cities & Counties",
+        who: "Finance directors · Grant managers",
+        pain: "ARPA closeout is a maze, findings keep you up at night, and deadlines are scattered across five portals — and you're the one who answers for whatever slips.",
+        relief: "One source of truth for every grant and every deadline, with compliance tracked against 2 CFR Part 200 as you go. Audit-ready becomes the default — and nothing slips past its due date.",
+        cta: { label: "Get audit-ready", href: "/government" },
+      },
+      {
+        icon: "nonprofit",
+        audience: "Nonprofits",
+        who: "Executive directors · Development leads",
+        pain: "You are the grants department. Between everything else, you chase two or three grants a year — and watch the rest of the funding go to someone with a bigger team.",
+        relief: "Discovery, eligibility, and AI-assisted drafting in one place — so a one-person shop can get ten applications out the door instead of two.",
+        cta: { label: "See what you'd qualify for", href: "/nonprofit" },
+      },
+    ] as Persona[],
+    coming: {
+      label: "Coming next",
+      title: "The same engine, tuned to your world.",
+      body: "There's real federal money for fire, police, hospitals, and more — but match requirements, period-of-performance rules, and endless reporting mean a lot of it goes unclaimed. We're onboarding early-access partners now.",
+      verticals: [
+        "Fire & EMS",
+        "Police",
+        "Hospitals",
+        "Universities",
+        "Small business",
+      ],
+      cta: { label: "Get early access", href: CTA_DEMO.href },
+    },
   },
   steps: {
     label: "How it works",
@@ -241,9 +288,12 @@ export const landing = {
     ] as CTA[],
   },
   finalCta: {
-    title: "Stop dreading the audit. Start trusting your records.",
-    sub: "See GrantComply running on your own grants in a 30-minute walkthrough — or start your free trial and have your organization set up by this afternoon.",
-    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
+    title: "Walk into your next audit already ready.",
+    sub: "See GrantComply running on your own grants in a 30-minute walkthrough — or start free and have your organization set up by this afternoon.",
+    ctas: [
+      { label: "Start free", href: CTA_SIGNUP.href },
+      { label: "Schedule a demo", href: CTA_DEMO.href },
+    ] as CTA[],
   },
   // Used by the coming-vertical pages (RoadmapSection).
   roadmap: {
@@ -646,7 +696,7 @@ export const nav = {
   ],
   ctas: {
     login: { label: "Login", href: "https://app.grantcomply.app/login" },
-    signup: CTA_SIGNUP,
+    signup: { label: "Start free", href: CTA_SIGNUP.href },
   },
 };
 

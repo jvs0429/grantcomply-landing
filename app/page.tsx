@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { StatLedger } from "@/components/stat-ledger";
 import { ProblemGrid } from "@/components/problem-grid";
+import { BuiltFor } from "@/components/built-for";
 import { HowItWorks } from "@/components/how-it-works";
 import { Section } from "@/components/primitives";
 import { SocialProof } from "@/components/social-proof";
@@ -18,6 +19,7 @@ export default function HomePage() {
     stats,
     statsCaption,
     problem,
+    personas,
     steps,
     socialProof,
     founder,
@@ -42,6 +44,14 @@ export default function HomePage() {
         title={problem.title}
         intro={problem.intro}
         cards={problem.cards}
+      />
+
+      <BuiltFor
+        label={personas.label}
+        title={personas.title}
+        sub={personas.sub}
+        live={personas.live}
+        coming={personas.coming}
       />
 
       <HowItWorks

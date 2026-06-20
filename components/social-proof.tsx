@@ -30,12 +30,12 @@ export function SocialProof({
               className="flex flex-col rounded-2xl border border-line bg-bg p-8 shadow-[var(--shadow-card)]"
             >
               <span
-                className="font-serif text-5xl leading-none text-accent-alt"
+                className="font-serif text-4xl leading-none text-accent-alt"
                 aria-hidden
               >
                 &ldquo;
               </span>
-              <blockquote className="mt-2 font-serif text-xl leading-snug tracking-[-0.2px] text-ink">
+              <blockquote className="mt-2 font-serif text-2xl leading-snug tracking-[-0.2px] text-ink">
                 {q.quote}
               </blockquote>
               <figcaption className="mt-6 border-t border-line pt-5">

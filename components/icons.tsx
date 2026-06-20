@@ -15,10 +15,31 @@ const base: SVGProps<SVGSVGElement> = {
   "aria-hidden": true,
 };
 
-export type IconName = "search" | "eligibility" | "post-award" | "audit";
+export type IconName =
+  | "search"
+  | "eligibility"
+  | "post-award"
+  | "audit"
+  | "cities"
+  | "nonprofit";
 
 export function Icon({ name }: { name: IconName }) {
   switch (name) {
+    case "cities":
+      return (
+        <svg {...base}>
+          <path d="M3 21h18" />
+          <path d="M5 21V9.5L12 4l7 5.5V21" />
+          <path d="M9.5 21v-4.5h5V21" />
+          <path d="M9.5 11h.01M14.5 11h.01" />
+        </svg>
+      );
+    case "nonprofit":
+      return (
+        <svg {...base}>
+          <path d="M12 20.5C7 17.5 4 14.4 4 10.6 4 8 6 6 8.4 6c1.5 0 2.8.8 3.6 2 .8-1.2 2.1-2 3.6-2C18 6 20 8 20 10.6c0 3.8-3 6.9-8 9.9z" />
+        </svg>
+      );
     case "search":
       return (
         <svg {...base}>

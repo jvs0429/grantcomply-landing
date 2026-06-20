@@ -25,16 +25,16 @@ export function Hero({
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-accent-soft to-transparent"
       />
-      <div className="container-site relative pt-20 pb-16 md:pt-28 md:pb-24">
+      <div className="container-site relative pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="mx-auto max-w-3xl text-center">
           {eyebrow && (
-            <p className="eyebrow mb-5 text-accent">{eyebrow}</p>
+            <p className="eyebrow mb-6 text-accent">{eyebrow}</p>
           )}
-          <h1 className="mx-auto max-w-3xl font-serif text-[34px] font-medium leading-[1.08] tracking-[-0.5px] text-ink sm:text-5xl md:text-[60px]">
+          <h1 className="mx-auto max-w-4xl text-balance font-serif text-[44px] font-medium leading-[1.0] tracking-[-1px] text-ink sm:text-6xl md:text-[80px]">
             {headline}
           </h1>
           {subheading && (
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
               {subheading}
             </p>
           )}

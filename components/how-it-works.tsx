@@ -43,7 +43,7 @@ export function HowItWorks({
                 />
                 <span className="eyebrow text-faint">{step.kicker}</span>
               </div>
-              <h3 className="font-serif text-xl font-medium tracking-[-0.2px] text-ink">
+              <h3 className="text-lg font-semibold tracking-[-0.2px] text-ink">
                 {step.title}
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-muted">

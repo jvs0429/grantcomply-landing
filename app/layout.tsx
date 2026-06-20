@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { buildMetadata, pageMeta, SITE_URL } from "@/lib/metadata";
 import "./globals.css";
 
-// Display — editorial serif optimized for reading dense text; authority + warmth.
-const newsreader = Newsreader({
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+// Display — Fraunces: a high-contrast old-style serif with optical sizing. At
+// hero sizes the opsz axis gives it a confident, characterful display cut;
+// authority + warmth that reads as a deliberate choice, not a stock system serif.
+const fraunces = Fraunces({
+  // Omitting `weight` makes the full wght axis variable (required to also vary
+  // the opsz axis); font-weight utilities still control weight across the range.
   subsets: ["latin"],
-  variable: "--font-newsreader",
+  axes: ["opsz"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -46,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable}`}
+      className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable}`}
     >
       <body>
         <a

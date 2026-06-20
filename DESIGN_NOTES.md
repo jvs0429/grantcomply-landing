@@ -1,4 +1,42 @@
-# GrantComply — Light Redesign v2 · Design Notes
+# GrantComply — Light Redesign · Design Notes
+
+## v3 addendum — font, headline, pain-point messaging
+
+**Display font: Newsreader → Fraunces.** Newsreader read as a stock system serif
+("default Times") at hero scale. Fraunces — a high-contrast old-style serif with a
+live optical-size (`opsz`) axis — reads as a deliberate, characterful choice:
+authority + warmth without tipping into boutique/fashion. Loaded via `next/font`
+with `axes: ["opsz"]` (weight omitted so wght stays variable); `font-optical-sizing:
+auto` lets it interpolate display contrast at 80px and steadier contrast at text
+sizes. Body stays **IBM Plex Sans**, data/labels **IBM Plex Mono**.
+Discipline learned from critique: reserve Fraunces for the hero, section H2s, and
+pull-quotes — card/step titles dropped to Plex Sans 600 so serif = the brand's
+voice, sans = product labeling. (Source Serif 4 / Newsreader were judged safer but
+blander — they'd cost the page its point of view.)
+
+**Headline: "Grants, without the dread."** Options considered:
+1. *Grants, without the dread.* ← chosen — names the buyers' defining feeling (fear
+   of getting it wrong), short, warm, universal, spacious for big type
+2. Never miss another grant. · 3. Every grant, audit-ready. · 4. Stop leaving
+   funding on the table. · 5. Win more grants. Fear fewer audits. · 6. The whole
+   grant lifecycle, finally handled.
+A 3-persona critique confirmed #1 lands hardest on the grant manager, survives for
+the finance director (rescued by the subhead's "audit-ready closeout"), and is
+backstopped for the nonprofit ED by the subhead + their own persona card. The
+subheading carries the outcome and ties to the stats: *a two-person team can chase
+the funding a ten-person team would.*
+
+**Pain-point messaging — "Built for your world."** New section with a Today → With
+GrantComply transformation per buyer: Cities & Counties (deadlines *and* 2 CFR Part
+200 audit-readiness — serves both the grant manager and the finance director),
+Nonprofits (ten applications out the door instead of two), plus an honest coming-soon
+panel (fire, police, hospitals, universities, small business). CTAs throughout shifted
+from generic to empathy/outcome-driven — "Start free — we set you up", "Get
+audit-ready", "See what you'd qualify for", "Get early access" — same links.
+
+---
+
+# Light Redesign v2 · Design Notes
 
 **The buyer.** A city finance director, county grant manager, or nonprofit ED. Tired of
 juggling grants across spreadsheets, email, and five portals. Anxious about 2 CFR / ARPA /
