@@ -1,75 +1,78 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
+import { StatLedger } from "@/components/stat-ledger";
 import { ProblemGrid } from "@/components/problem-grid";
-import { Section, SectionHeading } from "@/components/primitives";
-import { VerticalsGrid } from "@/components/verticals-grid";
-import { ThesisSection } from "@/components/thesis-section";
+import { HowItWorks } from "@/components/how-it-works";
+import { Section } from "@/components/primitives";
 import { SocialProof } from "@/components/social-proof";
-import { RoadmapSection } from "@/components/roadmap-section";
-import { PricingTable } from "@/components/pricing-table";
+import { Founder } from "@/components/founder";
+import { CtaSection } from "@/components/cta-section";
 import { buildMetadata, pageMeta } from "@/lib/metadata";
-import { landing, pricing, VERTICALS } from "@/lib/content";
+import { landing } from "@/lib/content";
 
 export const metadata: Metadata = buildMetadata(pageMeta.home);
 
 export default function HomePage() {
+  const {
+    hero,
+    stats,
+    statsCaption,
+    problem,
+    steps,
+    socialProof,
+    founder,
+    finalCta,
+  } = landing;
+
   return (
     <>
       <Hero
-        headline={landing.hero.headline}
-        subheading={landing.hero.subheading}
-        ctas={landing.hero.ctas}
-        note={landing.hero.note}
+        eyebrow={hero.eyebrow}
+        headline={hero.headline}
+        subheading={hero.subheading}
+        ctas={hero.ctas}
+        note={hero.note}
         screenshotSrc="/screenshots/government-discovery.png"
       />
 
-      <ProblemGrid cards={landing.problemGrid.cards} />
+      <StatLedger stats={stats} caption={statsCaption} />
 
-      <Section alt>
-        <SectionHeading
-          label="Seven verticals, one engine"
-          title="Built for every kind of organization"
-        />
-        <VerticalsGrid verticals={VERTICALS} />
-      </Section>
+      <ProblemGrid
+        label={problem.label}
+        title={problem.title}
+        intro={problem.intro}
+        cards={problem.cards}
+      />
+
+      <HowItWorks
+        label={steps.label}
+        title={steps.title}
+        sub={steps.sub}
+        steps={steps.items}
+      />
 
       <Section>
-        <SectionHeading
-          label="The Thesis"
-          title="Different orgs. Identical cycle."
-        />
-        <ThesisSection columns={landing.thesis} />
-      </Section>
-
-      <Section alt>
         <SocialProof
-          label={landing.socialProof.label}
-          quotes={landing.socialProof.quotes}
-          logos={landing.socialProof.logos}
+          label={socialProof.label}
+          quotes={socialProof.quotes}
+          logos={socialProof.logos}
         />
       </Section>
 
-      <Section id="roadmap">
-        <SectionHeading label={landing.roadmap.label} title="Where we're headed" />
-        <RoadmapSection />
-      </Section>
+      <Founder
+        label={founder.label}
+        name={founder.name}
+        role={founder.role}
+        photo={founder.photo}
+        quote={founder.quote}
+        ctas={founder.ctas}
+      />
 
-      <Section alt id="pricing">
-        <SectionHeading label="Transparent Pricing" title={pricing.heading} sub={pricing.sub} />
-        <div className="flex flex-col gap-14">
-          {pricing.sections.map((sec) => (
-            <div key={sec.title}>
-              <h3 className="mb-6 text-center text-xl font-semibold tracking-[-0.3px] text-fg">
-                {sec.title}
-              </h3>
-              <PricingTable tiers={sec.tiers} />
-            </div>
-          ))}
-        </div>
-        <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted">
-          {pricing.comingNote}
-        </p>
-      </Section>
+      <CtaSection
+        headline={finalCta.title}
+        sub={finalCta.sub}
+        ctas={finalCta.ctas}
+      />
     </>
   );
 }

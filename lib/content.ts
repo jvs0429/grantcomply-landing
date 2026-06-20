@@ -23,7 +23,7 @@ export const CTA_CONTACT: CTA = {
 
 // Book a time directly.
 export const CTA_DEMO: CTA = {
-  label: "Schedule a Demo",
+  label: "Schedule Demo",
   href: "https://calendly.com/jonathanvstuart/30min",
 };
 
@@ -50,6 +50,10 @@ export type ProblemCard = { icon: string; title: string; body: string };
 export type ProblemGridCard = { icon: string; kicker: string; body: string };
 
 export type Step = { kicker: string; title: string; body: string };
+
+export type Stat = { figure: string; label: string; check?: boolean };
+
+export type Testimonial = { quote: string; name: string; role: string };
 
 export type PricingTier = {
   plan: string;
@@ -134,68 +138,114 @@ export const testimonials: string[] = [
 
 export const landing = {
   hero: {
+    eyebrow: "For city, county & nonprofit grant teams",
     headline:
       "Grant teams that use GrantComply move faster, miss less, and close stronger.",
     subheading:
-      "Cities and nonprofits using GrantComply reclaimed staff capacity, avoided compliance disasters, and multiplied their funding pipeline. Here's what changed.",
+      "Run the whole grant lifecycle — discovery to closeout — in one system built for small teams carrying big compliance.",
     ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
-    note: "30-day trial. Full access. No credit card. We'll set up your organization.",
+    note: "30-day trial · Full access · No credit card · We set you up.",
   },
-  problemGrid: {
-    label: "The Reality",
-    title: "Why it's hard to manage grants well",
+  // Signature element: the trust band as a financial-statement / audit readout.
+  stats: [
+    { figure: "2", label: "people can run your whole grants operation" },
+    { figure: "$30M", label: "in funding managed on the platform" },
+    { figure: "10×", label: "more applications out the door" },
+    { figure: "audit-ready", label: "documentation on every grant", check: true },
+  ] as Stat[],
+  statsCaption: "Outcomes from live city and nonprofit deployments.",
+  problem: {
+    label: "The reality",
+    title: "You know this cycle better than anyone.",
+    intro:
+      "Five portals. A dozen spreadsheets. An inbox you're afraid to fall behind on. The funding is out there — the work of capturing it is what breaks small teams.",
     cards: [
       {
-        icon: "🔍",
+        icon: "search",
         kicker: "Discovery",
-        body: "Opportunities scattered across Grants.gov, state portals, foundation lists, and email alerts. No way to know what you're actually missing.",
+        body: "Opportunities scattered across Grants.gov, state portals, foundation lists, and email alerts. You can't chase what you never saw.",
       },
       {
-        icon: "❓",
+        icon: "eligibility",
         kicker: "Eligibility",
-        body: "Assessed by email, weeks into the application process. Compliance risks asked too late. Surprises at the deadline.",
+        body: "Are you even eligible? You find out by email — weeks in, sometimes the week it's due.",
       },
       {
-        icon: "📦",
-        kicker: "Post-Award",
-        body: "Procurement tracked here, drawdowns there, expenditures in a spreadsheet. Visibility is fragmented.",
+        icon: "post-award",
+        kicker: "Post-award",
+        body: "Procurement here, drawdowns there, expenditures in a spreadsheet. When someone asks “where are we?”, you guess.",
       },
       {
-        icon: "📋",
-        kicker: "Closeout",
-        body: "Readiness is a last-minute scramble. Audit-ready documentation scattered across departments.",
+        icon: "audit",
+        kicker: "Closeout & audit",
+        body: "Closeout is a scramble — and underneath it, the quiet worry: did we miss something 2 CFR says an auditor will find?",
       },
     ] as ProblemGridCard[],
   },
-  thesis: [
-    {
-      kicker: "The Problem",
-      title: "The work is done by hand.",
-      body: "Funding opportunities exist. But the cycle is complex: eligibility assessment, gap analysis, application drafting, compliance tracking, closeout audits. Most organizations solve it by hand.",
-    },
-    {
-      kicker: "The Pattern",
-      title: "The cycle never changes.",
-      body: "The cycle doesn't change by org type. A city asks the same questions as a nonprofit asks as a hospital. Yet each builds their own system. Redundant. Expensive. Error-prone.",
-    },
-    {
-      kicker: "The Vision",
-      title: "One engine, every org.",
-      body: "GrantComply is one platform, one engine, applied across org types. Discovery. Application. Compliance. Closeout. Built once. Scaled everywhere.",
-    },
-  ] as Step[],
+  steps: {
+    label: "How it works",
+    title: "Discovery to closeout, in one system.",
+    sub: "The same lifecycle you run today — minus the scattered tools and the last-minute panic.",
+    items: [
+      {
+        kicker: "Discover",
+        title: "See everything you actually qualify for.",
+        body: "One feed pulls federal, state, and foundation opportunities and matches them to your jurisdiction, mission, and priorities — so the funding you'd qualify for doesn't slip by unseen.",
+      },
+      {
+        kicker: "Apply",
+        title: "Know every requirement before you start.",
+        body: "GrantComply reads the NOFO, surfaces compliance requirements and eligibility risks upfront, and drafts alongside your team. No surprises at the deadline.",
+      },
+      {
+        kicker: "Stay audit-ready",
+        title: "Closeout that's done before it's due.",
+        body: "Procurement, drawdowns, expenditures, and deadlines tracked in one workspace — with documentation an auditor can follow. Audit-ready is the default, not a scramble.",
+      },
+    ] as Step[],
+  },
   socialProof: {
-    label: "Trusted by mission-driven orgs",
-    quotes: [testimonials[0], testimonials[2]],
+    label: "What they're saying",
+    quotes: [
+      {
+        quote:
+          "I've sat through enough audits to know what a clean one is worth. This is the first grants platform I've seen that makes our funding audit-ready by default — not a fire drill every closeout.",
+        name: "Judge Franklin",
+        role: "County Judge · Robertson County, Texas",
+      },
+      {
+        quote:
+          "For a nonprofit with three staff and no grants department, this is the difference between applying for two grants a year and ten.",
+        name: "Executive Director",
+        role: "Regional community nonprofit",
+      },
+    ] as Testimonial[],
     logos: [
       "City of Hearne",
-      "Brazos Valley",
       "Robertson County",
+      "Brazos Valley",
       "Hearne EDC",
-      "TX Rural Coalition",
       "Community Foundation",
     ],
   },
+  founder: {
+    label: "Why I built this",
+    name: "Jonathan Stuart",
+    role: "Founder, GrantComply",
+    photo: "/jonathan-headshot.jpeg",
+    quote:
+      "I built GrantComply because I watched capable teams lose funding they had already earned — not for lack of effort, but because the work was scattered across tools that were never meant to talk to each other. Cities and nonprofits do extraordinary things with grant money. They deserve software that respects how hard, and how high-stakes, that work really is.",
+    ctas: [
+      { label: "Read the full story", href: "/about" },
+      CTA_DEMO,
+    ] as CTA[],
+  },
+  finalCta: {
+    title: "Stop dreading the audit. Start trusting your records.",
+    sub: "See GrantComply running on your own grants in a 30-minute walkthrough — or start your free trial and have your organization set up by this afternoon.",
+    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
+  },
+  // Used by the coming-vertical pages (RoadmapSection).
   roadmap: {
     label: "The Roadmap",
     columns: [
@@ -587,15 +637,16 @@ export const pricing = {
 /* --------------------------------------------------------- Footer / nav */
 
 export const nav = {
-  product: VERTICALS,
+  // Brief: lead with the two live verticals; drop the coming-soon dropdown.
   links: [
+    { label: "Government", href: "/government" },
+    { label: "Nonprofit", href: "/nonprofit" },
     { label: "Pricing", href: "/pricing" },
     { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog" },
   ],
   ctas: {
     login: { label: "Login", href: "https://app.grantcomply.app/login" },
-    signup: { label: "Start Free", href: "https://app.grantcomply.app/signup" },
+    signup: CTA_SIGNUP,
   },
 };
 

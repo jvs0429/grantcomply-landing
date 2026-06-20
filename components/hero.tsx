@@ -19,93 +19,70 @@ export function Hero({
   screenshotSrc?: string;
 }) {
   return (
-    <section className="bg-bg">
-      <div className="container-site pt-24 pb-20 text-center md:pt-32 md:pb-28">
-        {screenshotSrc ? (
-          // Two-column layout
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 text-left md:grid-cols-2 md:gap-12">
-            {/* Left: Text */}
-            <div>
-              {eyebrow && (
-                <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                  {eyebrow}
-                </p>
-              )}
-              <h1 className="font-serif text-4xl leading-[1.05] tracking-[-1px] text-fg sm:text-5xl md:text-[48px]">
-                {headline}
-              </h1>
-              {subheading && (
-                <p className="mt-7 text-base leading-relaxed text-muted md:text-lg">
-                  {subheading}
-                </p>
-              )}
-              {body && (
-                <p className="mt-5 max-w-2xl text-sm leading-relaxed text-faint">
-                  {body}
-                </p>
-              )}
-              {ctas.length > 0 && (
-                <div className="mt-9 flex flex-wrap gap-3">
-                  {ctas.map((cta, i) => (
-                    <ButtonLink
-                      key={cta.label}
-                      href={cta.href}
-                      variant={i === 0 ? "primary" : "secondary"}
-                    >
-                      {cta.label}
-                    </ButtonLink>
-                  ))}
-                </div>
-              )}
-              {note && <p className="mt-5 text-xs text-faint">{note}</p>}
+    <section className="relative overflow-hidden bg-bg">
+      {/* Quiet ambient wash — keeps the white from feeling clinical */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-accent-soft to-transparent"
+      />
+      <div className="container-site relative pt-20 pb-16 md:pt-28 md:pb-24">
+        <div className="mx-auto max-w-3xl text-center">
+          {eyebrow && (
+            <p className="eyebrow mb-5 text-accent">{eyebrow}</p>
+          )}
+          <h1 className="mx-auto max-w-3xl font-serif text-[34px] font-medium leading-[1.08] tracking-[-0.5px] text-ink sm:text-5xl md:text-[60px]">
+            {headline}
+          </h1>
+          {subheading && (
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted">
+              {subheading}
+            </p>
+          )}
+          {body && (
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-faint">
+              {body}
+            </p>
+          )}
+          {ctas.length > 0 && (
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              {ctas.map((cta, i) => (
+                <ButtonLink
+                  key={cta.label}
+                  href={cta.href}
+                  variant={i === 0 ? "primary" : "secondary"}
+                >
+                  {cta.label}
+                </ButtonLink>
+              ))}
             </div>
+          )}
+          {note && (
+            <p className="mt-5 font-mono text-xs tracking-tight text-faint">
+              {note}
+            </p>
+          )}
+        </div>
 
-            {/* Right: Screenshot */}
-            <div className="flex items-center">
-              <div className="w-full rounded-lg border border-line bg-surface p-3">
-                <img
-                  src={screenshotSrc}
-                  alt="GrantComply interface"
-                  className="w-full rounded-md"
-                />
+        {screenshotSrc && (
+          <div className="mx-auto mt-14 max-w-5xl md:mt-16">
+            <figure className="overflow-hidden rounded-xl border border-line bg-bg shadow-[var(--shadow-lift)]">
+              {/* Faux app chrome — signals this is the real product */}
+              <div className="flex items-center gap-2 border-b border-line bg-surface px-4 py-2.5">
+                <span className="flex gap-1.5" aria-hidden>
+                  <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+                </span>
+                <span className="mx-auto rounded-[5px] bg-bg px-3 py-1 font-mono text-[11px] text-faint">
+                  app.grantcomply.app
+                </span>
               </div>
-            </div>
-          </div>
-        ) : (
-          // Original centered layout (no screenshot)
-          <div className="mx-auto max-w-3xl">
-            {eyebrow && (
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                {eyebrow}
-              </p>
-            )}
-            <h1 className="mx-auto max-w-3xl font-serif text-4xl leading-[1.05] tracking-[-1px] text-fg sm:text-5xl md:text-6xl lg:text-[72px]">
-              {headline}
-            </h1>
-            {subheading && (
-              <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
-                {subheading}
-              </p>
-            )}
-            {body && (
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-faint">
-                {body}
-              </p>
-            )}
-            {ctas.length > 0 && (
-              <div className="mt-9 flex flex-wrap justify-center gap-3">
-                {ctas.map((cta, i) => (
-                  <ButtonLink
-                    key={cta.label}
-                    href={cta.href}
-                    variant={i === 0 ? "primary" : "secondary"}
-                  >
-                    {cta.label}
-                  </ButtonLink>
-                ))}
-              </div>
-            )}
-            {note && <p className="mt-5 text-sm text-faint">{note}</p>}
+              <img
+                src={screenshotSrc}
+                alt="The GrantComply workspace — discovery, applications, and compliance in one place"
+                className="block w-full"
+              />
+            </figure>
           </div>
         )}
       </div>
