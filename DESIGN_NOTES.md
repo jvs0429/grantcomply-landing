@@ -1,5 +1,37 @@
 # GrantComply — Light Redesign · Design Notes
 
+## v3.1 addendum — hero counter, reach framing, de-attribution
+
+**Hero ticking counter (the hook).** A large currency figure counts up on load to
+**$1,000,000,000+**, formatted with `Intl.NumberFormat` (USD, no cents). Built as a
+client component (`funding-counter.tsx`): `requestAnimationFrame` + easeOutCubic over
+~2.2s, started by an `IntersectionObserver`, **tabular figures** so digits don't
+jitter, `prefers-reduced-motion` shows the final value immediately, and a visually-
+hidden span gives screen readers the stable final value (the ticking digits are
+`aria-hidden`).
+
+*Honesty fix from the persona critique:* the first cut framed it as "**$1B+ your
+organization could be pursuing**." All three buyer personas (esp. the audit-brained
+finance director and the skeptical nonprofit ED) distrusted it — no small city or
+3-person nonprofit pursues a billion. Reframed to the **honest national pool**:
+"$1,000,000,000+ **in federal and foundation grants is open right now.**" with the
+gut-punch headline **"Most of it goes unclaimed."** The counter is the single visual
+focal point; the headline is demoted in size so they cooperate instead of compete.
+
+**Three differentiated number moments.** Hero counter = the *opportunity*; the
+3-cell audit ledger (2 / 10× / audit-ready) = the *outcomes*; the founder's inline
+figures ($100M+ managed · 25+ municipalities · $30M preserved) = the *track record*.
+Resolved a `$30M` collision by dropping it from the ledger (it now lives only in the
+founder's bio) and gave the founder stats a plain inline treatment so they don't read
+as a second ledger.
+
+**Reach over logos.** Thin customer logos removed in favor of a capability statement,
+"Built to serve every city, county, and nonprofit in America," and **de-attributed**
+quotes (County Judge, Central Texas / Executive Director, Regional Community Nonprofit)
+— specific enough to read real, no names or org-logo bar.
+
+---
+
 ## v3 addendum — font, headline, pain-point messaging
 
 **Display font: Newsreader → Fraunces.** Newsreader read as a stock system serif

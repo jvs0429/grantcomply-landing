@@ -18,13 +18,11 @@ export function StatLedger({
         <div className="overflow-hidden rounded-2xl border border-line bg-surface shadow-[var(--shadow-card)]">
           {/* teal hairline — the "verified / clean" accent across the top */}
           <div className="h-[3px] bg-accent-alt" aria-hidden />
-          <dl className="grid grid-cols-2 divide-line md:grid-cols-4 md:divide-x">
-            {stats.map((s, i) => (
+          <dl className="grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            {stats.map((s) => (
               <div
                 key={s.label}
-                className={`flex flex-col gap-2 px-6 py-9 text-center md:px-8 md:py-11 ${
-                  i < 2 ? "border-b border-line md:border-b-0" : ""
-                } ${i % 2 === 1 ? "border-l border-line md:border-l-0" : ""}`}
+                className="flex flex-col gap-2 px-6 py-9 text-center md:px-8 md:py-11"
               >
                 <dt className="order-2 text-sm leading-snug text-muted">
                   {s.label}

@@ -1,5 +1,5 @@
 import { ButtonLink } from "./primitives";
-import type { CTA } from "@/lib/content";
+import type { CTA, Stat } from "@/lib/content";
 
 export function Founder({
   label,
@@ -7,6 +7,7 @@ export function Founder({
   role,
   photo,
   quote,
+  stats,
   ctas,
 }: {
   label: string;
@@ -14,6 +15,7 @@ export function Founder({
   role: string;
   photo: string;
   quote: string;
+  stats?: Stat[];
   ctas: CTA[];
 }) {
   return (
@@ -39,6 +41,22 @@ export function Founder({
             </blockquote>
             <p className="mt-6 text-sm font-semibold text-ink">{name}</p>
             <p className="font-mono text-xs tracking-tight text-faint">{role}</p>
+
+            {stats && stats.length > 0 && (
+              <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4 border-t border-line pt-6">
+                {stats.map((s) => (
+                  <div key={s.label} className="flex items-baseline gap-2">
+                    <dd className="font-mono text-xl font-medium leading-none tracking-tight text-accent-alt-strong">
+                      {s.figure}
+                    </dd>
+                    <dt className="text-sm leading-snug text-muted">
+                      {s.label}
+                    </dt>
+                  </div>
+                ))}
+              </dl>
+            )}
+
             {ctas.length > 0 && (
               <div className="mt-7 flex flex-wrap gap-3">
                 {ctas.map((cta, i) => (

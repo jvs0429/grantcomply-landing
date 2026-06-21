@@ -30,6 +30,7 @@ export default function HomePage() {
     <>
       <Hero
         eyebrow={hero.eyebrow}
+        counter={hero.counter}
         headline={hero.headline}
         subheading={hero.subheading}
         ctas={hero.ctas}
@@ -63,9 +64,9 @@ export default function HomePage() {
 
       <Section>
         <SocialProof
-          label={socialProof.label}
+          reach={socialProof.reach}
+          sub={socialProof.sub}
           quotes={socialProof.quotes}
-          logos={socialProof.logos}
         />
       </Section>
 
@@ -75,6 +76,7 @@ export default function HomePage() {
         role={founder.role}
         photo={founder.photo}
         quote={founder.quote}
+        stats={founder.stats}
         ctas={founder.ctas}
       />
 
