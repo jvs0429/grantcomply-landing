@@ -670,21 +670,40 @@ export const smallBusiness = {
 
 /* ---------------------------------------------------------------- Pricing */
 
+export type PricingSegment = {
+  key: string;
+  label: string;
+  tiers: PricingTier[];
+  /** Discoverability nudge shown under the cards pointing at the other segment. */
+  crossNote: string;
+};
+
 export const pricing = {
   heading: "Transparent Pricing",
   sub: "Start free or with a 30-day trial. No credit card required.",
-  sections: [
+  // Consulting-cost anchor: frame the price against what they pay consultants today.
+  anchor: {
+    heading: "Pricing that pays for itself",
+    sub: "Cities hire $50K–$200K consultants for a single ARPA closeout. Nonprofit grant consultants run $80K+ a year. GrantComply covers the entire lifecycle for a fraction of one engagement.",
+  },
+  segments: [
     {
-      title: "Government",
+      key: "government",
+      label: "Government",
       tiers: government.pricing,
+      crossNote:
+        "Nonprofit pricing starts free, with Premium at $999/year. Toggle above to view.",
     },
     {
-      title: "Nonprofit",
+      key: "nonprofit",
+      label: "Nonprofit",
       tiers: nonprofit.pricing,
+      crossNote:
+        "Government pricing starts at $4,800/year. Toggle above to view.",
     },
-  ],
-  comingNote:
-    "Healthcare, Public Safety, Education, and Small Business launch as Enterprise + custom pricing. Contact sales for early access.",
+  ] as PricingSegment[],
+  coming: ["Healthcare", "Public Safety", "Education", "Small Business"],
+  comingNote: "Coming soon, as Enterprise + custom pricing.",
 };
 
 /* --------------------------------------------------------- Footer / nav */
