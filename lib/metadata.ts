@@ -17,29 +17,30 @@ export function buildMetadata({ title, description, path }: PageMeta): Metadata 
     title: fullTitle,
     description,
     alternates: { canonical: url },
+    // Note: og:image / twitter:image are supplied automatically by the
+    // app/opengraph-image.tsx and app/twitter-image.tsx file conventions,
+    // which are inherited by every route. Don't set `images` here or it would
+    // override the dynamically generated card.
     openGraph: {
       title: fullTitle,
       description,
       url,
       siteName: SITE_NAME,
       type: "website",
-      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [`${SITE_URL}/og-image.png`],
     },
   };
 }
 
 export const pageMeta: Record<string, PageMeta> = {
   home: {
-    title:
-      "GrantComply — One platform for the grant lifecycle, every organization",
+    title: "GrantComply — Grants, without the dread.",
     description:
-      "GrantComply is the grant-lifecycle platform for cities, nonprofits, hospitals, universities, public safety, and small business. Discovery to closeout, one engine.",
+      "Discover, qualify for, and manage grants in one platform. Built for cities, counties, and nonprofits tired of the paperwork, the rules, and the audit fear.",
     path: "/",
   },
   government: {
