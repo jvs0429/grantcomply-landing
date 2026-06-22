@@ -40,7 +40,7 @@ export const pageMeta: Record<string, PageMeta> = {
   home: {
     title: "GrantComply — Grants, without the dread.",
     description:
-      "Discover, qualify for, and manage grants in one platform. Built for cities, counties, and nonprofits tired of the paperwork, the rules, and the audit fear.",
+      "Find, qualify for, and manage grants in one platform. Federal, state, and local funding — discovery to closeout.",
     path: "/",
   },
   government: {
