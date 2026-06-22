@@ -10,7 +10,7 @@ export type CTA = { label: string; href: string };
 
 // Self-serve: go straight to product signup.
 export const CTA_SIGNUP: CTA = {
-  label: "Start Free Trial",
+  label: "Start free",
   href: "https://app.grantcomply.app/signup",
 };
 
@@ -52,6 +52,15 @@ export type ProblemGridCard = { icon: string; kicker: string; body: string };
 export type Step = { kicker: string; title: string; body: string };
 
 export type Stat = { figure: string; label: string; check?: boolean };
+
+export type Persona = {
+  icon: string;
+  audience: string;
+  who: string;
+  pain: string;
+  relief: string;
+  cta: CTA;
+};
 
 export type Testimonial = { quote: string; name: string; role: string };
 
@@ -139,17 +148,23 @@ export const testimonials: string[] = [
 export const landing = {
   hero: {
     eyebrow: "For city, county & nonprofit grant teams",
-    headline:
-      "Grant teams that use GrantComply move faster, miss less, and close stronger.",
+    counter: {
+      target: 1_000_000_000,
+      suffix: "+",
+      label: "in federal and foundation grants is open right now.",
+    },
+    headline: "Most of it goes unclaimed.",
     subheading:
-      "Run the whole grant lifecycle — discovery to closeout — in one system built for small teams carrying big compliance.",
-    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
-    note: "30-day trial · Full access · No credit card · We set you up.",
+      "Finding it, qualifying for it, and managing it is more than a small team can run across five tools. GrantComply brings the whole lifecycle into one place — from the first opportunity to an audit-ready closeout.",
+    ctas: [
+      { label: "Start free — we'll set you up", href: CTA_SIGNUP.href },
+      { label: "Schedule a demo", href: CTA_DEMO.href },
+    ] as CTA[],
+    note: "Start free · No credit card · Guided setup for your organization.",
   },
   // Signature element: the trust band as a financial-statement / audit readout.
   stats: [
     { figure: "2", label: "people can run your whole grants operation" },
-    { figure: "$30M", label: "in funding managed on the platform" },
     { figure: "10×", label: "more applications out the door" },
     { figure: "audit-ready", label: "documentation on every grant", check: true },
   ] as Stat[],
@@ -182,6 +197,42 @@ export const landing = {
       },
     ] as ProblemGridCard[],
   },
+  personas: {
+    label: "Built for your world",
+    title: "The cycle is the same. The weight lands differently.",
+    sub: "A finance director, a lone grant manager, and a one-person nonprofit shop carry the same lifecycle — but not the same fear. We built for each of them.",
+    live: [
+      {
+        icon: "cities",
+        audience: "Cities & Counties",
+        who: "Finance directors · Grant managers",
+        pain: "You're the one who answers for whatever slips. ARPA closeout is a maze, findings keep you up at night, and deadlines hide across five portals.",
+        relief: "One place for every grant and every deadline — nothing slips, nothing's missed. ARPA closeout, procurement compliance, and audit readiness handled, tracked against 2 CFR Part 200 as you go.",
+        cta: { label: "Get audit-ready", href: "/government" },
+      },
+      {
+        icon: "nonprofit",
+        audience: "Nonprofits",
+        who: "Executive directors · Development leads",
+        pain: "You are the grants department. Between everything else, you chase two or three grants a year — and watch the rest of the funding go to someone with a bigger team.",
+        relief: "Discover funders, draft proposals, manage relationships — pursue more with less. A one-person shop gets ten applications out the door instead of two.",
+        cta: { label: "See what you'd qualify for", href: "/nonprofit" },
+      },
+    ] as Persona[],
+    coming: {
+      label: "Coming next",
+      title: "Every sector that needs grants, served.",
+      body: "There's real federal money for fire, police, hospitals, and more — but match requirements, period-of-performance rules, and endless reporting mean a lot of it goes unclaimed. We're onboarding early-access partners now.",
+      verticals: [
+        "Fire & EMS",
+        "Police",
+        "Hospitals",
+        "Universities",
+        "Small business",
+      ],
+      cta: { label: "Get early access", href: CTA_DEMO.href },
+    },
+  },
   steps: {
     label: "How it works",
     title: "Discovery to closeout, in one system.",
@@ -205,45 +256,47 @@ export const landing = {
     ] as Step[],
   },
   socialProof: {
-    label: "What they're saying",
+    reach: "Built to serve every city, county, and nonprofit in America.",
+    sub: "The grant lifecycle doesn't change from one organization to the next. Neither does the weight of getting it wrong.",
     quotes: [
       {
         quote:
-          "I've sat through enough audits to know what a clean one is worth. This is the first grants platform I've seen that makes our funding audit-ready by default — not a fire drill every closeout.",
-        name: "Judge Franklin",
-        role: "County Judge · Robertson County, Texas",
+          "I've sat through enough audits to know what a clean one is worth. This is the first grants platform that makes funding audit-ready by default — not a fire drill every closeout.",
+        name: "County Judge",
+        role: "Central Texas",
       },
       {
         quote:
           "For a nonprofit with three staff and no grants department, this is the difference between applying for two grants a year and ten.",
         name: "Executive Director",
-        role: "Regional community nonprofit",
+        role: "Regional Community Nonprofit",
       },
     ] as Testimonial[],
-    logos: [
-      "City of Hearne",
-      "Robertson County",
-      "Brazos Valley",
-      "Hearne EDC",
-      "Community Foundation",
-    ],
   },
   founder: {
-    label: "Why I built this",
+    label: "The foundation it's built on",
     name: "Jonathan Stuart",
     role: "Founder, GrantComply",
     photo: "/jonathan-headshot.jpeg",
     quote:
       "I built GrantComply because I watched capable teams lose funding they had already earned — not for lack of effort, but because the work was scattered across tools that were never meant to talk to each other. Cities and nonprofits do extraordinary things with grant money. They deserve software that respects how hard, and how high-stakes, that work really is.",
+    stats: [
+      { figure: "$100M+", label: "in federal grants managed" },
+      { figure: "25+", label: "municipalities served" },
+      { figure: "$30M", label: "in funding preserved" },
+    ] as Stat[],
     ctas: [
       { label: "Read the full story", href: "/about" },
       CTA_DEMO,
     ] as CTA[],
   },
   finalCta: {
-    title: "Stop dreading the audit. Start trusting your records.",
-    sub: "See GrantComply running on your own grants in a 30-minute walkthrough — or start your free trial and have your organization set up by this afternoon.",
-    ctas: [CTA_SIGNUP, CTA_DEMO] as CTA[],
+    title: "Walk into your next audit already ready.",
+    sub: "See GrantComply running on your own grants in a 30-minute walkthrough — or start free and have your organization set up by this afternoon.",
+    ctas: [
+      { label: "Start free", href: CTA_SIGNUP.href },
+      { label: "Schedule a demo", href: CTA_DEMO.href },
+    ] as CTA[],
   },
   // Used by the coming-vertical pages (RoadmapSection).
   roadmap: {
@@ -617,21 +670,40 @@ export const smallBusiness = {
 
 /* ---------------------------------------------------------------- Pricing */
 
+export type PricingSegment = {
+  key: string;
+  label: string;
+  tiers: PricingTier[];
+  /** Discoverability nudge shown under the cards pointing at the other segment. */
+  crossNote: string;
+};
+
 export const pricing = {
   heading: "Transparent Pricing",
   sub: "Start free or with a 30-day trial. No credit card required.",
-  sections: [
+  // Consulting-cost anchor: frame the price against what they pay consultants today.
+  anchor: {
+    heading: "Pricing that pays for itself",
+    sub: "Cities hire $50K–$200K consultants for a single ARPA closeout. Nonprofit grant consultants run $80K+ a year. GrantComply covers the entire lifecycle for a fraction of one engagement.",
+  },
+  segments: [
     {
-      title: "Government",
+      key: "government",
+      label: "Government",
       tiers: government.pricing,
+      crossNote:
+        "Nonprofit pricing starts free, with Premium at $999/year. Toggle above to view.",
     },
     {
-      title: "Nonprofit",
+      key: "nonprofit",
+      label: "Nonprofit",
       tiers: nonprofit.pricing,
+      crossNote:
+        "Government pricing starts at $4,800/year. Toggle above to view.",
     },
-  ],
-  comingNote:
-    "Healthcare, Public Safety, Education, and Small Business launch as Enterprise + custom pricing. Contact sales for early access.",
+  ] as PricingSegment[],
+  coming: ["Healthcare", "Public Safety", "Education", "Small Business"],
+  comingNote: "Coming soon, as Enterprise + custom pricing.",
 };
 
 /* --------------------------------------------------------- Footer / nav */
@@ -646,7 +718,7 @@ export const nav = {
   ],
   ctas: {
     login: { label: "Login", href: "https://app.grantcomply.app/login" },
-    signup: CTA_SIGNUP,
+    signup: { label: "Start free", href: CTA_SIGNUP.href },
   },
 };
 

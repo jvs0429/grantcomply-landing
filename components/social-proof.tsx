@@ -1,25 +1,30 @@
 import type { Testimonial } from "@/lib/content";
 
 export function SocialProof({
-  label,
+  reach,
+  sub,
   quotes,
-  logos,
   // Legacy single-quote API still used by some vertical pages.
   quote,
   attribution,
 }: {
-  label?: string;
+  reach?: string;
+  sub?: string;
   quotes?: Testimonial[];
-  logos?: string[];
   quote?: string;
   attribution?: string;
 }) {
   return (
     <div className="mx-auto max-w-5xl">
-      {label && (
-        <p className="eyebrow mb-12 text-center text-accent-alt-strong">
-          {label}
-        </p>
+      {reach && (
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <h2 className="font-serif text-3xl font-medium tracking-[-0.4px] text-ink md:text-[40px] md:leading-[1.1]">
+            {reach}
+          </h2>
+          {sub && (
+            <p className="mt-5 text-lg leading-relaxed text-muted">{sub}</p>
+          )}
+        </div>
       )}
 
       {quotes && quotes.length > 0 ? (
@@ -30,12 +35,12 @@ export function SocialProof({
               className="flex flex-col rounded-2xl border border-line bg-bg p-8 shadow-[var(--shadow-card)]"
             >
               <span
-                className="font-serif text-5xl leading-none text-accent-alt"
+                className="font-serif text-4xl leading-none text-accent-alt"
                 aria-hidden
               >
                 &ldquo;
               </span>
-              <blockquote className="mt-2 font-serif text-xl leading-snug tracking-[-0.2px] text-ink">
+              <blockquote className="mt-2 font-serif text-2xl leading-snug tracking-[-0.2px] text-ink">
                 {q.quote}
               </blockquote>
               <figcaption className="mt-6 border-t border-line pt-5">
@@ -59,19 +64,6 @@ export function SocialProof({
           )}
         </figure>
       ) : null}
-
-      {logos && logos.length > 0 && (
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {logos.map((logo) => (
-            <span
-              key={logo}
-              className="text-sm font-medium tracking-tight text-faint"
-            >
-              {logo}
-            </span>
-          ))}
-        </div>
-      )}
     </div>
   );
 }

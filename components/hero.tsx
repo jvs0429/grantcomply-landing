@@ -1,8 +1,10 @@
 import { ButtonLink } from "./primitives";
+import { FundingCounter } from "./funding-counter";
 import type { CTA } from "@/lib/content";
 
 export function Hero({
   eyebrow,
+  counter,
   headline,
   subheading,
   body,
@@ -11,6 +13,7 @@ export function Hero({
   screenshotSrc,
 }: {
   eyebrow?: string;
+  counter?: { target?: number; suffix?: string; label: string };
   headline: string;
   subheading?: string;
   body?: string;
@@ -23,18 +26,31 @@ export function Hero({
       {/* Quiet ambient wash — keeps the white from feeling clinical */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-gradient-to-b from-accent-soft to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[460px] bg-gradient-to-b from-accent-soft to-transparent"
       />
       <div className="container-site relative pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="mx-auto max-w-3xl text-center">
-          {eyebrow && (
-            <p className="eyebrow mb-5 text-accent">{eyebrow}</p>
+          {eyebrow && <p className="eyebrow mb-7 text-accent">{eyebrow}</p>}
+
+          {counter && (
+            <div className="mb-7">
+              <p className="font-mono font-medium leading-[0.95] tracking-[-0.03em] text-ink text-[clamp(1.9rem,8vw,5.5rem)]">
+                <FundingCounter
+                  target={counter.target}
+                  suffix={counter.suffix}
+                />
+              </p>
+              <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-muted">
+                {counter.label}
+              </p>
+            </div>
           )}
-          <h1 className="mx-auto max-w-3xl font-serif text-[34px] font-medium leading-[1.08] tracking-[-0.5px] text-ink sm:text-5xl md:text-[60px]">
+
+          <h1 className="mx-auto max-w-2xl text-balance font-serif text-[26px] font-medium leading-[1.1] tracking-[-0.4px] text-ink sm:text-3xl md:text-[34px]">
             {headline}
           </h1>
           {subheading && (
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
               {subheading}
             </p>
           )}
@@ -43,6 +59,7 @@ export function Hero({
               {body}
             </p>
           )}
+
           {ctas.length > 0 && (
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               {ctas.map((cta, i) => (

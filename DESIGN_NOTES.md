@@ -1,4 +1,74 @@
-# GrantComply — Light Redesign v2 · Design Notes
+# GrantComply — Light Redesign · Design Notes
+
+## v3.1 addendum — hero counter, reach framing, de-attribution
+
+**Hero ticking counter (the hook).** A large currency figure counts up on load to
+**$1,000,000,000+**, formatted with `Intl.NumberFormat` (USD, no cents). Built as a
+client component (`funding-counter.tsx`): `requestAnimationFrame` + easeOutCubic over
+~2.2s, started by an `IntersectionObserver`, **tabular figures** so digits don't
+jitter, `prefers-reduced-motion` shows the final value immediately, and a visually-
+hidden span gives screen readers the stable final value (the ticking digits are
+`aria-hidden`).
+
+*Honesty fix from the persona critique:* the first cut framed it as "**$1B+ your
+organization could be pursuing**." All three buyer personas (esp. the audit-brained
+finance director and the skeptical nonprofit ED) distrusted it — no small city or
+3-person nonprofit pursues a billion. Reframed to the **honest national pool**:
+"$1,000,000,000+ **in federal and foundation grants is open right now.**" with the
+gut-punch headline **"Most of it goes unclaimed."** The counter is the single visual
+focal point; the headline is demoted in size so they cooperate instead of compete.
+
+**Three differentiated number moments.** Hero counter = the *opportunity*; the
+3-cell audit ledger (2 / 10× / audit-ready) = the *outcomes*; the founder's inline
+figures ($100M+ managed · 25+ municipalities · $30M preserved) = the *track record*.
+Resolved a `$30M` collision by dropping it from the ledger (it now lives only in the
+founder's bio) and gave the founder stats a plain inline treatment so they don't read
+as a second ledger.
+
+**Reach over logos.** Thin customer logos removed in favor of a capability statement,
+"Built to serve every city, county, and nonprofit in America," and **de-attributed**
+quotes (County Judge, Central Texas / Executive Director, Regional Community Nonprofit)
+— specific enough to read real, no names or org-logo bar.
+
+---
+
+## v3 addendum — font, headline, pain-point messaging
+
+**Display font: Newsreader → Fraunces.** Newsreader read as a stock system serif
+("default Times") at hero scale. Fraunces — a high-contrast old-style serif with a
+live optical-size (`opsz`) axis — reads as a deliberate, characterful choice:
+authority + warmth without tipping into boutique/fashion. Loaded via `next/font`
+with `axes: ["opsz"]` (weight omitted so wght stays variable); `font-optical-sizing:
+auto` lets it interpolate display contrast at 80px and steadier contrast at text
+sizes. Body stays **IBM Plex Sans**, data/labels **IBM Plex Mono**.
+Discipline learned from critique: reserve Fraunces for the hero, section H2s, and
+pull-quotes — card/step titles dropped to Plex Sans 600 so serif = the brand's
+voice, sans = product labeling. (Source Serif 4 / Newsreader were judged safer but
+blander — they'd cost the page its point of view.)
+
+**Headline: "Grants, without the dread."** Options considered:
+1. *Grants, without the dread.* ← chosen — names the buyers' defining feeling (fear
+   of getting it wrong), short, warm, universal, spacious for big type
+2. Never miss another grant. · 3. Every grant, audit-ready. · 4. Stop leaving
+   funding on the table. · 5. Win more grants. Fear fewer audits. · 6. The whole
+   grant lifecycle, finally handled.
+A 3-persona critique confirmed #1 lands hardest on the grant manager, survives for
+the finance director (rescued by the subhead's "audit-ready closeout"), and is
+backstopped for the nonprofit ED by the subhead + their own persona card. The
+subheading carries the outcome and ties to the stats: *a two-person team can chase
+the funding a ten-person team would.*
+
+**Pain-point messaging — "Built for your world."** New section with a Today → With
+GrantComply transformation per buyer: Cities & Counties (deadlines *and* 2 CFR Part
+200 audit-readiness — serves both the grant manager and the finance director),
+Nonprofits (ten applications out the door instead of two), plus an honest coming-soon
+panel (fire, police, hospitals, universities, small business). CTAs throughout shifted
+from generic to empathy/outcome-driven — "Start free — we set you up", "Get
+audit-ready", "See what you'd qualify for", "Get early access" — same links.
+
+---
+
+# Light Redesign v2 · Design Notes
 
 **The buyer.** A city finance director, county grant manager, or nonprofit ED. Tired of
 juggling grants across spreadsheets, email, and five portals. Anxious about 2 CFR / ARPA /

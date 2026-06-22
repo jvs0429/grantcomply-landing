@@ -36,7 +36,7 @@
 
   /* Fonts (wired to next/font CSS variables) */
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
 
   /* Container */
@@ -72,6 +72,12 @@ body {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* Let Fraunces interpolate its optical-size axis to the rendered size — display
+   contrast at hero scale, steadier text contrast at small sizes. */
+.font-serif {
+  font-optical-sizing: auto;
 }
 
 ::selection {
