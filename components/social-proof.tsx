@@ -1,57 +1,68 @@
+import type { Testimonial } from "@/lib/content";
+
 export function SocialProof({
-  label,
-  quote,
+  reach,
+  sub,
   quotes,
+  // Legacy single-quote API still used by some vertical pages.
+  quote,
   attribution,
-  logos,
 }: {
-  label?: string;
+  reach?: string;
+  sub?: string;
+  quotes?: Testimonial[];
   quote?: string;
-  quotes?: string[];
   attribution?: string;
-  logos?: string[];
 }) {
   return (
-    <div className="mx-auto max-w-4xl text-center">
-      {label && (
-        <p className="mb-10 text-xs font-semibold uppercase tracking-[0.18em] text-faint">
-          {label}
-        </p>
-      )}
-
-      {logos && logos.length > 0 && (
-        <div className="mb-14 grid grid-cols-2 gap-x-8 gap-y-6 opacity-40 sm:grid-cols-3">
-          {logos.map((logo) => (
-            <div
-              key={logo}
-              className="flex items-center justify-center text-sm font-medium tracking-tight text-muted grayscale"
-            >
-              {logo}
-            </div>
-          ))}
+    <div className="mx-auto max-w-5xl">
+      {reach && (
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <h2 className="font-serif text-3xl font-medium tracking-[-0.4px] text-ink md:text-[40px] md:leading-[1.1]">
+            {reach}
+          </h2>
+          {sub && (
+            <p className="mt-5 text-lg leading-relaxed text-muted">{sub}</p>
+          )}
         </div>
       )}
 
       {quotes && quotes.length > 0 ? (
-        <div className="grid grid-cols-1 gap-5 text-left md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {quotes.map((q) => (
-            <blockquote
-              key={q}
-              className="rounded-[4px] border border-line bg-bg p-7 font-serif text-xl leading-snug tracking-[-0.3px] text-fg"
+            <figure
+              key={q.name + q.quote.slice(0, 12)}
+              className="flex flex-col rounded-2xl border border-line bg-bg p-8 shadow-[var(--shadow-card)]"
             >
-              “{q}”
-            </blockquote>
+              <span
+                className="font-serif text-4xl leading-none text-accent-alt"
+                aria-hidden
+              >
+                &ldquo;
+              </span>
+              <blockquote className="mt-2 font-serif text-2xl leading-snug tracking-[-0.2px] text-ink">
+                {q.quote}
+              </blockquote>
+              <figcaption className="mt-6 border-t border-line pt-5">
+                <p className="text-sm font-semibold text-ink">{q.name}</p>
+                <p className="font-mono text-xs tracking-tight text-faint">
+                  {q.role}
+                </p>
+              </figcaption>
+            </figure>
           ))}
         </div>
       ) : quote ? (
-        <>
-          <blockquote className="mx-auto max-w-3xl font-serif text-2xl leading-snug tracking-[-0.3px] text-fg md:text-3xl">
-            “{quote}”
+        <figure className="mx-auto max-w-3xl text-center">
+          <blockquote className="font-serif text-2xl leading-snug tracking-[-0.2px] text-ink md:text-3xl">
+            &ldquo;{quote}&rdquo;
           </blockquote>
           {attribution && (
-            <p className="mt-6 text-sm text-muted">{attribution}</p>
+            <figcaption className="mt-6 text-sm text-muted">
+              {attribution}
+            </figcaption>
           )}
-        </>
+        </figure>
       ) : null}
     </div>
   );

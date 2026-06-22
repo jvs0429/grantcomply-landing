@@ -1,15 +1,17 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/* Button-styled link. Square corners (4px max). No animations — hover transition only. */
+/* Button-styled link. Softly rounded (6px). Hover transition only. */
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
 const variantClass: Record<ButtonVariant, string> = {
+  // Blue, the single action color.
   primary:
-    "bg-accent text-white hover:bg-accent-hover border border-transparent",
+    "bg-accent text-white border border-transparent shadow-[var(--shadow-card)] hover:bg-accent-hover",
+  // Outline — accessible on white, doesn't compete with the primary.
   secondary:
-    "bg-accent-alt text-white hover:bg-accent-alt-hover border border-transparent",
-  ghost: "bg-transparent text-muted hover:text-fg border border-transparent",
+    "bg-bg text-ink border border-line-strong hover:border-accent hover:text-accent",
+  ghost: "bg-transparent text-muted border border-transparent hover:text-ink",
 };
 
 export function ButtonLink({
@@ -39,7 +41,7 @@ export function ButtonLink({
   );
 }
 
-/* Section wrapper with alternating background support and generous vertical rhythm. */
+/* Section wrapper with alternating background and generous vertical rhythm. */
 export function Section({
   children,
   alt = false,
@@ -61,7 +63,7 @@ export function Section({
   );
 }
 
-/* Centered section heading with optional kicker label and subheading. */
+/* Centered section heading with optional eyebrow label and subheading. */
 export function SectionHeading({
   label,
   title,
@@ -74,14 +76,14 @@ export function SectionHeading({
   return (
     <div className="mx-auto mb-14 max-w-2xl text-center">
       {label && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
-          {label}
-        </p>
+        <p className="eyebrow mb-4 text-accent-alt-strong">{label}</p>
       )}
-      <h2 className="font-sans text-3xl font-semibold tracking-[-0.5px] text-fg md:text-4xl">
+      <h2 className="font-serif text-3xl font-medium tracking-[-0.4px] text-ink md:text-[40px] md:leading-[1.1]">
         {title}
       </h2>
-      {sub && <p className="mt-4 text-lg leading-relaxed text-muted">{sub}</p>}
+      {sub && (
+        <p className="mt-5 text-lg leading-relaxed text-muted">{sub}</p>
+      )}
     </div>
   );
 }
@@ -96,13 +98,15 @@ export function StatusBadge({
   const live = status === "live";
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-[4px] px-2.5 py-1 text-xs font-medium ${
-        live ? "text-live" : "text-coming"
+      className={`inline-flex items-center gap-2 rounded-full px-2.5 py-1 text-xs font-medium ${
+        live
+          ? "bg-accent-alt-soft text-accent-alt-strong"
+          : "bg-surface-2 text-muted"
       }`}
     >
       <span
         className={`h-1.5 w-1.5 rounded-full ${
-          live ? "bg-live" : "bg-coming"
+          live ? "bg-accent-alt" : "bg-coming"
         }`}
         aria-hidden
       />

@@ -133,7 +133,7 @@ function ContactSalesFormInner({
                 type="text"
                 value={organization}
                 onChange={(e) => setOrganization(e.target.value)}
-                placeholder="City of Hearne"
+                placeholder="City, county, or nonprofit name"
                 className={inputClass}
               />
             </label>
